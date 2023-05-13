@@ -1,0 +1,15 @@
+{
+  "name": "nodejs_api_with_moongose",
+  "version": "1.0.0",
+  "description": "Lern Node js with mongodb also use Moongose here to over come the limitation of mongodb, now we can use Models and schema as an advance feture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Vishwajit",
+    "vm"
+  ],
+  "author": "vishwajit vm",
+  "license": "ISC"
+}

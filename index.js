@@ -29,5 +29,15 @@ app.delete("/delete/:_id" , async (req , resp) => {
     resp.send(data) ;
 })
 
+//####################UPDATE ROUTE################
+app.put("/update/:_id" , async (req , resp) => {
+    let data = await product.updateOne(
+        req.params ,
+        {$set: req.body}
+    ) ;
+    console.log(data) ;
+    resp.send(data) ;
+})
+
 
 app.listen(port) ;

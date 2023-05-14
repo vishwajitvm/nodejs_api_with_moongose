@@ -39,5 +39,19 @@ app.put("/update/:_id" , async (req , resp) => {
     resp.send(data) ;
 })
 
+//####################SEARCH SINGLE API ROUTE################
+app.get('/search/:key' , async (req , resp) => {
+    let data = await product.find(
+        {
+            $or : [
+                { "title" : {$regex:req.params.key} }
+            ]
+        }
+    )
+    console.log(data) ;
+    resp.send(data) ;
+
+})
+
 
 app.listen(port) ;

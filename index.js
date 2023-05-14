@@ -53,5 +53,23 @@ app.get('/search/:key' , async (req , resp) => {
 
 })
 
+//####################SEARCH MULTIPLE API ROUTE################
+app.get('/search/multiple/:key' , async (req , resp) => {
+    let data = await product.find(
+        {
+            $or : [
+                { "title" : {$regex:req.params.key} },
+                { "brand" : {$regex:req.params.key} },
+                { "category" : {$regex:req.params.key} },
+                { "price" : {$regex:req.params.key} }
+            ]
+        }
+    )
+    console.log(data) ;
+    resp.send(data) ;
+
+})
+
+
 
 app.listen(port) ;

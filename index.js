@@ -1,4 +1,5 @@
 const express = require('express')
+const multer = require('multer') ;
 require('./config') //import datbase
 const product = require('./product') ; //import model and schema
 const port = process.env.port || 8080 ;
@@ -69,6 +70,20 @@ app.get('/multiple/:key' , async (req , resp) => {
 
 })
 
+//####################UPLOAD SINGLE FILE API ROUTE################
+const uploadSingleFile = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, "uploads")
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + "_" + Date.now() + ".jpg")
+        }
+    })
+}).single("user_file");
 
+app.post('/single/upload', uploadSingleFile, (req, resp) => {
+    resp.send("Hello");
+});
 
 app.listen(port) ;

@@ -4,6 +4,7 @@
   "description": "Lern Node js with mongodb also use Moongose here to over come the limitation of mongodb, now we can use Models and schema as an advance feture",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

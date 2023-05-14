@@ -22,5 +22,12 @@ app.get('/list' , async (req , resp) => {
     resp.send(data) ;
 })
 
+//####################DELETE ROUTE################
+app.delete("/delete/:_id" , async (req , resp) => {
+    let data = await product.deleteOne(req.params) ;
+    console.log(data) ;
+    resp.send(data) ;
+})
+
 
 app.listen(port) ;
